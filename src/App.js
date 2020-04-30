@@ -4,7 +4,6 @@ import './App.css';
 import Title from './components/Title'
 import ToDoForm from './components/ToDoForm'
 import ToDoList from './components/ToDoList'
-import ToDo from './components/ToDo'
 
 import { Container } from 'semantic-ui-react'
 
@@ -33,6 +32,7 @@ class App extends React.Component{
   // Remove todo handler
   removeTodo(id) {
     // Filter all todos except the one to be removed
+    // eslint-disable-next-line
     const remainder = this.state.data.filter((todo) => {
       if(todo.id !== id){
         return todo;
@@ -51,9 +51,9 @@ class App extends React.Component{
             addTodo={this.addTodo.bind(this)}
           />
           <ToDoList 
-            todos={this.state.data} 
+            todos={this.state.data}
+            removeTodo={this.removeTodo.bind(this)}
           />
-          <ToDo></ToDo>
         </Container>
       </div>
     );

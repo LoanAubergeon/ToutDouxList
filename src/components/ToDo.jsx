@@ -1,11 +1,22 @@
 
 import React from 'react'
 
-const ToDo = ({content, id, remove}) => {
+import { List } from 'semantic-ui-react'
+
+const ToDo = ({todo, remove}) => {
     return (
-        <li class="ui message">
-            <div class="header">{content}</div>
-        </li>
+        <List.Item>
+            <List.Content floated='left'>
+                <button class='' onClick={() => {remove(todo.id);}}>x</button>
+            </List.Content>
+            <List.Content>
+                <List.Header>{todo.content}</List.Header>
+                
+            </List.Content>
+            <List.Content floated='right'>
+                <button class='' onClick={() => {remove(todo.id);}}>x</button>
+            </List.Content>
+        </List.Item>
     )
 }
 
